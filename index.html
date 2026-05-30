@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>နည်းပညာ ကောလိပ် (City College)</title>
+    <link rel="stylesheet" href="style.css">
+    	<style>
+    	/* တစ်ဝက်ဘ်ဆိုက်လုံးအတွက် အခြေခံ သတ်မှတ်ချက် */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Header နဂိုပုံစံကို ညှိခြင်း */
+header {
+    background-color: #002147; /* ကျောင်းများသုံးလေ့ရှိသည့် အပြာရင့်ရောင် */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+header .logo h2 {
+    font-size: 24px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #ffcc00; /* Mouse တင်လိုက်လျှင် ရွှေဝါရောင်ပြောင်းရန် */
+}
+
+/* Hero (Banner) ပိုင်း ဒီဇိုင်း */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1200') no-repeat center center/cover;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 45px;
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+/* ခလုတ် ဒီဇိုင်း */
+.btn {
+    background-color: #ffcc00;
+    color: #002147;
+    padding: 12px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background-color: white;
+}
+
+/* အကြောင်းအရာ အပိုင်း */
+.about-section {
+    padding: 60px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-section h2 {
+    margin-bottom: 20px;
+    color: #002147;
+}
+/* Courses Section တစ်ခုလုံး၏ အပြင်အဆင် */
+.courses-section {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* ကတ်များ ထင်ရှားစေရန် နောက်ခံကို မီးခိုးနုရောင် ထားခြင်း */
+    text-align: center;
+}
+
+.courses-section h2 {
+    color: #002147;
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* ကတ်များကို ဘေးတိုက်စီရန် Flexbox သုံးခြင်း */
+.courses-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* ကတ်တစ်ခုနှင့်တစ်ခု ကြားအကွာအဝေး */
+    flex-wrap: wrap; /* မျက်နှာပြင်ကျဉ်းသွားလျှင် ကတ်များကို အောက်သို့ ဆင်းသွားစေရန် */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ကတ်တစ်ခုချင်းစီ၏ ဒီဇိုင်း */
+.course-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* ကတ်အောက်တွင် အရိပ်ထည့်ခြင်း */
+    overflow: hidden; /* ပုံထောင့်များကို ကတ်အတိုင်း လုံးသွားစေရန် */
+    width: 350px; /* ကတ်တစ်ခုချင်းစီ၏ အကျယ် */
+    text-align: left;
+    transition: transform 0.3s ease; /* Mouse တင်လျှင် တုံ့ပြန်မှု နှေးနှေးလေး ဖြစ်စေရန် */
+}
+
+/* Mouse တင်လိုက်လျှင် ကတ်လေး ကြွတက်လာစေရန် */
+.course-card:hover {
+    transform: translateY(-10px);
+}
+
+/* ကတ်ထဲက ပုံဒီဇိုင်း */
+.course-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* ပုံမပြဲဘဲ ကွက်တိဖြစ်စေရန် */
+}
+
+/* ကတ်ထဲက စာသားများ အပြင်အဆင် */
+.course-info {
+    padding: 20px;
+}
+
+.course-info h3 {
+    color: #002147;
+    margin-bottom: 15px;
+    font-size: 20px;
+}
+
+.course-info p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    height: 70px; /* စာသားအားလုံး အနိမ့်အမြင့် ညီနေစေရန် */
+}
+
+/* ကတ်ထဲက ခလုတ်ဒီဇိုင်း */
+.course-btn {
+    display: inline-block;
+    color: #002147;
+    text-decoration: none;
+    font-weight: bold;
+    border: 2px solid #002147;
+    padding: 8px 15px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.course-btn:hover {
+    background-color: #002147;
+    color: white;
+}
+/* Contact Section တစ်ခုလုံး အပြင်အဆင် */
+.contact-section {
+    padding: 60px 20px;
+    background-color: #ffffff;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+    flex-wrap: wrap; /* ဖုန်းမျက်နှာပြင်မှာ အထက်အောက် ဖြစ်သွားစေရန် */
+}
+
+/* ဘယ်ဘက်ခြမ်း လိပ်စာဒီဇိုင်း */
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h2 {
+    color: #002147;
+    margin-bottom: 20px;
+    font-size: 32px;
+}
+
+.contact-info p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.info-details p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+/* ညာဘက်ခြမ်း Form သေတ္တာဒီဇိုင်း */
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background-color: #f4f6f9;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.contact-form h3 {
+    color: #002147;
+    margin-bottom: 20px;
+}
+
+/* Input ကွက်တစ်ခုချင်းစီ၏ ပုံစံ */
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    outline: none;
+}
+
+/* Input ကွက်ကို နှိပ်လိုက်လျှင် အပြာရောင်ဘောင် ပြောင်းရန် */
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #002147;
+    box-shadow: 0 0 5px rgba(0,33,71,0.2);
+}
+
+/* Form ထဲက ခလုတ်ဒီဇိုင်း */
+.submit-btn {
+    width: 100%;
+    background-color: #002147;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #ffcc00;
+    color: #002147;
+}
+
+
+
+    	</style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h2>City College</h2>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">ပင်မစာမျက်နှာ</a></li>
+                <li><a href="#about">ကျောင်းအကြောင်း</a></li>
+                <li><a href="#courses">သင်တန်းများ</a></li>
+                <li><a href="#contact">ဆက်သွယ်ရန်</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-text">
+            <h1>အနာဂတ်ခေါင်းဆောင်များကို မွေးထုတ်ပေးရာ</h1>
+            <p>အရည်အသွေးမြင့် ပညာရေးနှင့် နည်းပညာရပ်များကို တစ်နေရာတည်းတွင် လေ့လာနိုင်ပါသည်။</p>
+            <a href="#contact" class="btn">အခုပဲ အပ်နှံပါ</a>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>ကျွန်ုပ်တို့ ကျောင်းအကြောင်း</h2>
+        <p>City College ကို ၂၀၂၀ ခုနှစ်တွင် စတင်တည်ထောင်ခဲ့ပြီး၊ ကျောင်းသား/သူများ၏ ကဏ္ဍစုံ ဖွံ့ဖြိုးတိုးတက်ရေးကို အဓိကထား သင်ကြားပေးနေပါသည်။</p>
+    </section>
+        <section id="courses" class="courses-section">
+        <h2>ကျွန်ုပ်တို့၏ သင်တန်းများ</h2>
+        <p class="section-subtitle">ခေတ်မီပြီး အလုပ်အကိုင် အခွင့်အလမ်းရစေမည့် နည်းပညာသင်တန်းများ</p>
+
+        <div class="courses-container">
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=400" alt="Web Development">
+                <div class="course-info">
+                    <h3>Web Development</h3>
+                    <p>HTML, CSS, JavaScript တို့ဖြင့် ခေတ်မီ ဝက်ဘ်ဆိုက်များကို အခြေခံမှစ၍ စိတ်ကြိုက် ဖန်တီးနိုင်အောင် သင်ကြားပေးပါသည်။</p>
+                    <a href="#" class="course-btn">အသေးစိတ်ကြည့်ရန်</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=400" alt="Python Programming">
+                <div class="course-info">
+                    <h3>Python & AI အခြေခံ</h3>
+                    <p>ယနေ့ခေတ် အသုံးအများဆုံး Python language ကို အသုံးပြုပြီး ပရိုဂရမ်ရေးဆွဲခြင်းနှင့် AI နည်းပညာ အခြေခံများကို လေ့လာရမည်။</p>
+                    <a href="#" class="course-btn">အသေးစိတ်ကြည့်ရန်</a>
+                </div>
+            </div>
+
+            <div class="course-card">
+                <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=400" alt="Network Engineering">
+                <div class="course-info">
+                    <h3>Network Engineering</h3>
+                    <p>ကွန်ပျူတာ ကွန်ရက်ချိတ်ဆက်ခြင်း၊ Server ဆောက်ခြင်းနှင့် ကွန်ရက်လုံခြုံရေးဆိုင်ရာ နည်းပညာရပ်များကို လက်တွေ့သင်ကြားရမည်။</p>
+                    <a href="#" class="course-btn">အသေးစိတ်ကြည့်ရန်</a>
+                </div>
+            </div>
+        </div>
+    </section>
+       <section id="contact" class="contact-section">
+        <div class="contact-container">
+            
+            <div class="contact-info">
+                <h2>ဆက်သွယ်ရန်</h2>
+                <p>သင်တန်းများနှင့် ပတ်သက်၍ အသေးစိတ် သိရှိလိုပါက အောက်ပါ လိပ်စာများမှတစ်ဆင့် စုံစမ်းမေးမြန်းနိုင်ပါသည်။</p>
+                <div class="info-details">
+                    <p><strong>လိပ်စာ -</strong> အမှတ် (၁၂၃)၊ တက္ကသိုလ်ရိပ်သာလမ်း၊ ရန်ကုန်မြို့။</p>
+                    <p><strong>ဖုန်းနံပါတ် -</strong> ၀၉-၁၂၃၄၅၆၇၈၉၊ ၀၉-၉၈၇၆၅၄၃၂၁</p>
+                    <p><strong>အီးမေးလ် -</strong> info@citycollege.edu.mm</p>
+                </div>
+            </div>
+
+            <div class="contact-form">
+                <h3>စာရင်းပေးသွင်းရန်/စုံစမ်းရန်</h3>
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">နာမည် (အမည်အပြည့်အစုံ)</label>
+                        <input type="text" id="name" name="name" placeholder="မောင်မောင်" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">အီးမေးလ် လိပ်စာ</label>
+                        <input type="email" id="email" name="email" placeholder="maungmaung@gmail.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course-select">စိတ်ဝင်စားသည့် သင်တန်း</label>
+                        <select id="course-select" name="course">
+                            <option value="web">Web Development</option>
+                            <option value="python">Python & AI အခြေခံ</option>
+                            <option value="network">Network Engineering</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">သိလိုသမျှ မေးမြန်းရန်</label>
+                        <textarea id="message" name="message" rows="4" placeholder="ဤနေရာတွင် စာရေးသားနိုင်ပါသည်..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">ဖောင်တင်မည်</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+ 
+
+
+    <script>
+    	// HTML ထဲက form element ကို လှမ်းဖမ်းခြင်း
+const contactForm = document.querySelector('.contact-form form');
+
+// Form ကို လာတင်တဲ့အခါ (Submit လုပ်တဲ့အခါ) အလုပ်လုပ်မည့်စနစ်
+contactForm.addEventListener('submit', function(event) {
+    // ခလုတ်နှိပ်လိုက်လျှင် ပုံမှန်အတိုင်း စာမျက်နှာကြီး Refresh ဖြစ်သွားခြင်းကို တားဆီးရန်
+    event.preventDefault();
+
+    // ကျောင်းသား ရိုက်ထည့်လိုက်သည့် နာမည်ကို လှမ်းယူခြင်း
+    const studentName = document.getElementById('name').value;
+    
+    // စိတ်ကြိုက်ရွေးချယ်လိုက်သည့် သင်တန်းအမည်ကို လှမ်းယူခြင်း
+    const courseSelect = document.getElementById('course-select');
+    const selectedCourse = courseSelect.options[courseSelect.selectedIndex].text;
+
+    // ကျောင်းသားထံ ပြသမည့် နှုတ်ဆက်စာတို ဖန်တီးခြင်း
+    alert(`မင်္ဂလာပါ ${studentName} ခင်ဗျာ။ \n${selectedCourse} သင်တန်းအတွက် စာရင်းပေးသွင်းမှုကို လက်ခံရရှိပါပြီ။ သတ်မှတ်ထားသည့် အီးမေးလ်မှတစ်ဆင့် ဆက်သွယ်ပေးပါမည်။`);
+
+    // ဖောင်ထဲတွင် ဖြည့်ထားသည်များကို ပြန်ဖျက်ပေးခြင်း (Reset)
+    contactForm.reset();
+});
+
+</script>
+</body>
+</html>
