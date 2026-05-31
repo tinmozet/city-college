@@ -1,10 +1,13 @@
 // ၁။ လိုအပ်သော Packages များကို ခေါ်ယူခြင်း
 require('dotenv').config(); // .env ဖိုင်မှ ဒေတာများကို ဖတ်ရန်
 const express = require('express');
-const mongoose = require('mongoose');
-const path = require('path');
+const cors = require('cors'); // ၁။ ဒီလိုင်းလေး ထည့်ပါ
 
 const app = express();
+
+app.use(cors()); // ၂။ ဒီလိုင်းလေးကို အပေါ်နားမှာ ထည့်ပေးပါ (အရေးကြီးဆုံး)
+app.use(express.json());
+
 // Render ပေါ်တင်လျှင် ၎င်းတို့ပေးမည့် Port ကို သုံးရန်၊ မရှိပါက 3000 ကိုသုံးရန်
 const PORT = process.env.PORT || 3000;
 
