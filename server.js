@@ -87,6 +87,26 @@ app.post('/api/admission', async (req, res) => {
         });
     }
 });
+// ဒေတာဘေ့စ်ထဲက ကျောင်းသားစာရင်း အားလုံးကို ပြန်ဖတ်မည့် API (GET Method)
+app.get('/api/admissions', async (req, res) => {
+    try {
+        // Admission Model ထဲက ဒေတာအားလုံးကို အချိန်အသစ်ဆုံးကနေ အဟောင်းအတိုင်း စီပြီး ရှာခိုင်းခြင်း
+        const allAdmissions = await Admission.find().sort({ submittedAt: -1 });
+        
+        // ရလာတဲ့ ဒေတာတွေကို Frontend သို့ ပို့ပေးခြင်း
+        res.status(200).json({
+            status: "success",
+            data: allAdmissions
+        });
+    } catch (error) {
+        console.error('ဒေတာဖတ်ရာတွင် အမှားဖြစ်ပွားမှု -', error);
+        res.status(500).json({ 
+            status: "error", 
+            message: "ဒေတာများကို မဖတ်နိုင်ပါ။" 
+        });
+    }
+});
+
 
 // ၆။ Server ကို စတင်မောင်းနှင်ခြင်း
 app.listen(PORT, () => {
